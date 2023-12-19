@@ -1,0 +1,11 @@
+FROM tensorflow/tensorflow:2.3.1-gpu
+
+WORKDIR /home
+COPY . .
+
+RUN apt-get update
+
+RUN python3 -m pip install --upgrade pip
+
+ARG REQUIREMENTS_FILE
+RUN pip3 install -r requirements_gpu.txt
